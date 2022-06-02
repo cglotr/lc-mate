@@ -1,0 +1,14 @@
+version: 2.1
+orbs:
+  codecov: codecov/codecov@3.2.2
+jobs:
+  build:
+    docker:
+      - image: cimg/node:18.2.0
+    steps:
+      - checkout
+      - run: node --version
+      - run: npm install
+      - run: npm run test
+      - codecov/upload:
+          validate: true
