@@ -5,16 +5,16 @@
 
 ## Build
 
-```bash
+```
 npm run build
 ```
 
 ## Test
 
-```bash
+```
 npm run test
 ```
 
 ## Docs
 
-- https://developer.chrome.com/docs/extensions/
+- [Chrome Developer](https://developer.chrome.com/docs/extensions/)
