@@ -23,9 +23,6 @@ export class UserServiceImpl implements UserService {
         })
       }
     }
-    console.log('! usernames', usernames)
-    console.log('! keys', this.userCache.keys())
-    console.log('! fetch', fetch)
     if (fetch) {
       return this.api.getUsers(usernames)
         .then(users => {
