@@ -89,11 +89,15 @@ describe('styleA', () => {
     tests.forEach((test) => {
       const a: UserLinkNode = {
         text: '',
+        href: '',
         style: {
           borderRadius: '',
           padding: '',
           backgroundColor: '',
           color: ''
+        },
+        firstChild: {
+          nodeName: ''
         }
       }
       const actual = styleA(a, test.user)

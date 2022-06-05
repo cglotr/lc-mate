@@ -1,13 +1,15 @@
-import { work } from './work'
 import { ApiImpl } from './api/api_impl'
 import { UserServiceImpl } from './service/user_service_impl'
-
-const WORK_INTERVAL = 1000
+import { WorkerImpl } from './worker_impl'
 
 function main() {
   const apiImpl = new ApiImpl()
   const userService = new UserServiceImpl(apiImpl)
-  setInterval(work(userService), WORK_INTERVAL)
+  const worker = new WorkerImpl(document as any, userService)
+
+  if (worker.start()) {
+    console.log('LC Mate worker started.')
+  }
 }
 
 main()
