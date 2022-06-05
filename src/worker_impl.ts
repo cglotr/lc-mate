@@ -22,6 +22,12 @@ export class WorkerImpl implements Worker {
   start(): boolean {
     this.loop = setInterval(() => {
       this.work()
+      if (document) {
+        const h4 = document.querySelector('h4')
+        if (h4 && h4.textContent === 'Ooops, page is crashed') {
+          location.reload()
+        }
+      }
     }, WORK_INTERVAL)
     return this.loop !== null
   }
