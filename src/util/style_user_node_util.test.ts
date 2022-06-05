@@ -13,7 +13,9 @@ describe('styleUserNodeUtil', () => {
         expected: {
           text: 'awice · 2945',
           backgroundColor: '#4285F4',
-          color: '#FFFFFF'
+          color: '#FFFFFF',
+          padding: '0 2px',
+          borderRadius: '2px'
         }
       },
       {
@@ -25,7 +27,9 @@ describe('styleUserNodeUtil', () => {
         expected: {
           text: 'hiepit · 1994',
           backgroundColor: '#0F9D58',
-          color: '#FFFFFF'
+          color: '#FFFFFF',
+          padding: '0 2px',
+          borderRadius: '2px'
         }
       },
       {
@@ -37,7 +41,9 @@ describe('styleUserNodeUtil', () => {
         expected: {
           text: 'cxky · 1791',
           backgroundColor: '',
-          color: ''
+          color: '',
+          padding: '',
+          borderRadius: ''
         }
       }
     ]
@@ -57,8 +63,8 @@ describe('styleUserNodeUtil', () => {
       }
       const actual = styleUserNodeUtil(a, test.user)
       expect(actual.text).toBe(test.expected.text)
-      expect(actual.style.borderRadius).toBe('2px')
-      expect(actual.style.padding).toBe('0 2px')
+      expect(actual.style.borderRadius).toBe(test.expected.borderRadius)
+      expect(actual.style.padding).toBe(test.expected.padding)
       expect(actual.style.backgroundColor).toBe(test.expected.backgroundColor)
       expect(actual.style.color).toBe(test.expected.color)
     })
