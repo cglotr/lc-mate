@@ -10,7 +10,9 @@ const NON_USERNAMES = new Set([
   'explore',
   'contest',
   'discuss',
-  'interview'
+  'interview',
+  'store',
+  'profile'
 ])
 
 export function getUsernameUtil(link: string): string {

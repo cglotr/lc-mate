@@ -26,6 +26,8 @@ describe('getUsernameUtil', () => {
       'https://leetcode.com/contest',
       'https://leetcode.com/discuss',
       'https://leetcode.com/interview',
+      'https://leetcode.com/store',
+      'https://leetcode.com/profile',
     ]
     tests.forEach(link => {
       const actual = getUsernameUtil(link)
