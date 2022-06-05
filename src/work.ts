@@ -1,15 +1,15 @@
-import type { Api } from './api'
-import type { User } from './user'
 import { getUsername } from './util'
 import { styleA } from './util'
-import { A } from './a'
+import { UserLinkNode } from './types/user_link_node'
+import { UserService } from './service/user_service'
 
-const userNodes = new Map<string, A[]>()
+const userNodes = new Map<string, UserLinkNode[]>()
 
-export function work(api: Api) {
+export function work(userService: UserService) {
   return () => {
     const usernames: string[] = []
-    const tmpUserNodes = new Map<string, A[]>()
+    const tmpUserNodes = new Map<string, UserLinkNode[]>()
+
     document.querySelectorAll('a').forEach((linkNode) => {
       const link = linkNode.href
       const username = getUsername(link)
@@ -28,15 +28,16 @@ export function work(api: Api) {
     tmpUserNodes.forEach((nodes, username) => {
       userNodes.set(username, nodes)
     })
-    api.getUsers(usernames).then(users => {
-      users.forEach(user => {
+
+    userService.getUsers(usernames).then(users => {
+      for (let user of users) {
         if (!userNodes.has(user.username)) {
           return
         }
         userNodes.get(user.username)?.forEach(node => {
           styleA(node, user)
         })
-      })
+      }
     })
   }
 }

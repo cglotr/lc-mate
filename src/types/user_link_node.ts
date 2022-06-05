@@ -1,4 +1,4 @@
-export type A = {
+export type UserLinkNode = {
   text: string,
   style: {
     borderRadius: string,

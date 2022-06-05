@@ -1,6 +1,6 @@
 import { getUsername } from './util'
 import { styleA } from './util'
-import { A } from './a'
+import { UserLinkNode } from './types/user_link_node'
 
 describe('getUsername', () => {
   test('valid usernames', () => {
@@ -24,6 +24,10 @@ describe('getUsername', () => {
       'https://leetcode.com/terms',
       'https://leetcode.com/privacy',
       'https://leetcode.com/region',
+      'https://leetcode.com/explore',
+      'https://leetcode.com/contest',
+      'https://leetcode.com/discuss',
+      'https://leetcode.com/interview',
     ]
     tests.forEach(link => {
       const actual = getUsername(link)
@@ -83,7 +87,7 @@ describe('styleA', () => {
       }
     ]
     tests.forEach((test) => {
-      const a: A = {
+      const a: UserLinkNode = {
         text: '',
         style: {
           borderRadius: '',

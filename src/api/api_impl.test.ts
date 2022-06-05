@@ -1,5 +1,5 @@
 import { ApiImpl } from './api_impl'
-import { User } from './user'
+import { User } from '../types/user'
 
 global.fetch = jest.fn((input, config) => {
   if (config.method === 'POST') {

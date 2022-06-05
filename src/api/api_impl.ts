@@ -1,5 +1,5 @@
 import type { Api } from './api'
-import type { User } from './user'
+import type { User } from '../types/user'
 
 const BASE_URL = 'https://lc-mate-backend.herokuapp.com'
 

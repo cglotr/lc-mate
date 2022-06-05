@@ -1,5 +1,5 @@
-import { A } from './a'
-import { User } from './user'
+import { UserLinkNode } from './types/user_link_node'
+import { User } from './types/user'
 
 const USER_LINK_REGEX = /^https:\/\/leetcode.com\/[\w\d-_]+\/?$/
 const NON_USERNAMES = new Set([
@@ -9,7 +9,11 @@ const NON_USERNAMES = new Set([
   'student',
   'terms',
   'privacy',
-  'region'
+  'region',
+  'explore',
+  'contest',
+  'discuss',
+  'interview'
 ])
 const GOOGLE_BLUE = '#4285F4'
 const GOOGLE_GREEN = '#0F9D58'
@@ -29,7 +33,7 @@ export function getUsername(link: string): string {
   return candidate
 }
 
-export function styleA(a: A, user: User): A {
+export function styleA(a: UserLinkNode, user: User): UserLinkNode {
   if (user.rating > 0) {
     a.text = `${user.username} · ${user.rating}`
   }
