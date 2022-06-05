@@ -32,7 +32,7 @@ export class UserServiceImpl implements UserService {
           return this.getUsersFromCache(usernames)
         })
     } else {
-      return this.getUsersFromCache(usernames)
+      return Promise.resolve(this.getUsersFromCache(usernames))
     }
   }
 
