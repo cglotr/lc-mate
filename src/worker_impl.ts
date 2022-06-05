@@ -1,6 +1,7 @@
 import { UserService } from './service/user_service'
 import { Worker } from './worker'
-import { getUsername, styleA } from './util'
+import { styleUserNodeUtil } from './util/style_user_node_util'
+import { getUsernameUtil } from './util/get_username_util'
 import { UserLinkNode } from './types/user_link_node'
 import { Doc } from './types/doc'
 
@@ -39,7 +40,7 @@ export class WorkerImpl implements Worker {
 
     this.doc.querySelectorAll('a').forEach((linkNode) => {
       const link = linkNode.href
-      const username = getUsername(link)
+      const username = getUsernameUtil(link)
       if (username === '') {
         return
       }
@@ -63,7 +64,7 @@ export class WorkerImpl implements Worker {
           return
         }
         this.userNodes.get(user.username)?.forEach(node => {
-          styleA(node, user)
+          styleUserNodeUtil(node, user)
         })
       }
     })
