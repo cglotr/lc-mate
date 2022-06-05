@@ -1,7 +1,7 @@
 {
   "name": "LC Mate",
-  "description": "",
-  "version": "0.0",
+  "description": "Highlights & shows user contest rating in https://leetcode.com/",
+  "version": "1.0.0",
   "manifest_version": 3,
   "content_scripts": [
     {
@@ -12,5 +12,11 @@
         "main.js"
       ]
     }
-  ]
+  ],
+  "icons": {
+    "16": "lc_mate16.png",
+    "32": "lc_mate32.png",
+    "48": "lc_mate48.png",
+    "128": "lc_mate128.png"
+  }
 }
