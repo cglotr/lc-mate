@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { WorkerImpl } from './worker_impl'
 import { Doc } from './types/doc'
 import { UserService } from './service/user_service'
