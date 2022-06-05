@@ -2,11 +2,14 @@ import type { Api } from './api'
 import type { User } from './user'
 import { getUsername } from './util'
 import { styleA } from './util'
+import { A } from './a'
 
-const users_map = new Map<string, User>()
+const userNodes = new Map<string, A[]>()
 
 export function work(api: Api) {
   return () => {
+    const usernames: string[] = []
+    const tmpUserNodes = new Map<string, A[]>()
     document.querySelectorAll('a').forEach((linkNode) => {
       const link = linkNode.href
       const username = getUsername(link)
@@ -16,22 +19,24 @@ export function work(api: Api) {
       if (!linkNode.firstChild || linkNode.firstChild.nodeName !== '#text') {
         return
       }
-      if (!users_map.has(username)) {
-        const user: User = {
-          username: username,
-          rating: 0,
-          rank: ''
-        }
-        users_map.set(username, user)
-        api.getUser(username).then(user => {
-          users_map.set(username, user)
-        })
-      } else {
-        const user = users_map.get(username)
-        if (user) {
-          styleA(linkNode, user)
-        }
+      usernames.push(username)
+      if (!tmpUserNodes.has(username)) {
+        tmpUserNodes.set(username, [])
       }
+      tmpUserNodes.get(username)?.push(linkNode)
+    })
+    tmpUserNodes.forEach((nodes, username) => {
+      userNodes.set(username, nodes)
+    })
+    api.getUsers(usernames).then(users => {
+      users.forEach(user => {
+        if (!userNodes.has(user.username)) {
+          return
+        }
+        userNodes.get(user.username)?.forEach(node => {
+          styleA(node, user)
+        })
+      })
     })
   }
 }

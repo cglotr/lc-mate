@@ -4,11 +4,20 @@ import type { User } from './user'
 const BASE_URL = 'https://lc-mate-backend.herokuapp.com'
 
 export class ApiImpl implements Api {
-  async getUser(username: string) {
-    return fetch(`${BASE_URL}/user?username=${username}`)
+  async getUsers(usernames: string[]) {
+    return fetch(`${BASE_URL}/users`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        usernames,
+      })
+    })
       .then(response => response.json())
       .then(json => {
-        return json.user as User
-      });
+        return json.users as User[]
+      })
   }
 }
