@@ -1,14 +1,17 @@
 {
   "name": "lc-mate",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Chrome extension that shows & highlights user ratings in LC",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "test": "jest --verbose"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "chrome",
+    "extension"
+  ],
+  "author": "cglotr",
   "license": "ISC",
   "jest": {
     "collectCoverage": true,
