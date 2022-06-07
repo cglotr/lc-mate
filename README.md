@@ -5,6 +5,8 @@
 
 Chrome extension that shows & highlights user contest ratings in [LC](https://leetcode.com). _Guardians_ & _Knights_ will be highlighted blue or green respectively
 
+![screenshot](https://github.com/cglotr/lc-mate/blob/master/lcmate.png)
+
 Backend [repo](https://github.com/cglotr/lc-mate-backend)
 
 ## Build
