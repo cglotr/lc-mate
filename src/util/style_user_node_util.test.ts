@@ -40,10 +40,10 @@ describe('styleUserNodeUtil', () => {
         },
         expected: {
           text: 'cxky · 1791',
-          backgroundColor: '',
-          color: '',
-          padding: '',
-          borderRadius: ''
+          backgroundColor: '#F4B400',
+          color: '#FFFFFF',
+          padding: '0 2px',
+          borderRadius: '2px'
         }
       }
     ]

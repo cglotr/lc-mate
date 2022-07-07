@@ -3,7 +3,7 @@ import { User } from '../types/user'
 
 global.fetch = jest.fn((input, config) => {
   if (config.method === 'POST') {
-    if (input === 'https://lc-mate-backend.herokuapp.com/users') {
+    if (input === 'https://lc-mate-backend-production.up.railway.app/users') {
       if (config.body === `{"usernames":["awice","hiepit"]}`) {
         const users: User[] = [
           {

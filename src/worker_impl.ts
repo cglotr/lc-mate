@@ -5,7 +5,7 @@ import { getUsernameUtil } from './util/get_username_util'
 import { UserLinkNode } from './types/user_link_node'
 import { Doc } from './types/doc'
 
-const WORK_INTERVAL = 1000
+const WORK_INTERVAL = 200
 
 export class WorkerImpl implements Worker {
   private userNodes = new Map<string, UserLinkNode[]>()
