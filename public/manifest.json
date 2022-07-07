@@ -1,7 +1,7 @@
 {
   "name": "LC Mate",
-  "description": "Highlights & shows user contest rating in https://leetcode.com/",
-  "version": "1.0.1",
+  "description": "Highlights & shows user contest rating in https://leetcode.com",
+  "version": "1.2.0",
   "manifest_version": 3,
   "content_scripts": [
     {
